@@ -1,0 +1,48 @@
+# Android Studio
+**/build/
+**/.cxx/
+*.cxx
+**/captures/
+.externalNativeBuild
+
+# Debugging Dumps
+*.log
+*.trace
+*.hprof
+
+# Gradle
+/out/
+/gradle/wrapper/gradle-wrapper.properties
+/gradle/wrapper/gradle-wrapper.jar
+/.gradle/
+
+# IntelliJ IDEA
+*.iml
+.idea/*
+!.idea/codeStyles/
+!.idea/runConfigurations/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+
+# Java/Kotlin Files
+*.class
+*.jar
+
+# Local Configuration File (SDK Path, etc)
+local.properties
+
+# OS Specific Files
+.AppleDouble
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ProGuard/Migration Files
+mapping.txt
+proguard/
+*.keystore
+
+# Build Artifacts
+*.apk
+*.aab
