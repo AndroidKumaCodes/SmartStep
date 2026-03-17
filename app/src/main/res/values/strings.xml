@@ -1,0 +1,24 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">Smart Step</string>
+
+    <!-- ProfileSetup -->
+    <string name="profile_setup_title">My Profile</string>
+    <string name="profile_setup_info_text">This information helps calculate your activity more accurately.</string>
+    <string name="profile_setup_skip">Skip</string>
+    <string name="profile_setup_start">Start</string>
+
+    <!-- ProfileSetup (ps) / Dialog -->
+    <string name="ps_dialog_subtitle">Used to calculate calories</string>
+    <string name="ps_dialog_unit_ft"> ft</string>
+    <string name="ps_dialog_unit_inch"> in</string>
+    <string name="ps_dialog_unit_cm"> cm</string>
+    <string name="ps_dialog_unit_lbs"> lbs</string>
+    <string name="ps_dialog_unit_kg"> kg</string>
+    <string name="ps_dialog_label_gender">Gender</string>
+    <string name="ps_dialog_label_height">Height</string>
+    <string name="ps_dialog_label_weight">Weight</string>
+    <string name="ps_dialog_cancel">Cancel</string>
+    <string name="ps_dialog_ok">Ok</string>
+
+</resources>
