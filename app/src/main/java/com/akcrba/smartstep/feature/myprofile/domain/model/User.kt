@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.domain.model
+package com.akcrba.smartstep.feature.myprofile.domain.model
 
 data class User(
     val gender: Gender,

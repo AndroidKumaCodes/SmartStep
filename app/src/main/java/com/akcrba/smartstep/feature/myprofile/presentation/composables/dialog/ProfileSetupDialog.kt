@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables.dialog
+package com.akcrba.smartstep.feature.myprofile.presentation.composables.dialog
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -28,24 +28,24 @@ import com.akcrba.smartstep.R
 import com.akcrba.smartstep.app.ui.theme.SmartStepTheme
 import com.akcrba.smartstep.app.ui.theme.bodyLargeMedium
 import com.akcrba.smartstep.app.ui.theme.bodyMediumRegular
-import com.akcrba.smartstep.feature.profilesetup.presentation.ProfileSetupAction
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.BodyStats
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.DialogType
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.Height
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.HeightItems
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.Weight
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.WeightItems
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.WheelPickerData
+import com.akcrba.smartstep.feature.myprofile.presentation.MyProfileAction
+import com.akcrba.smartstep.feature.myprofile.presentation.model.BodyStats
+import com.akcrba.smartstep.feature.myprofile.presentation.model.DialogType
+import com.akcrba.smartstep.feature.myprofile.presentation.model.Height
+import com.akcrba.smartstep.feature.myprofile.presentation.model.HeightItems
+import com.akcrba.smartstep.feature.myprofile.presentation.model.Weight
+import com.akcrba.smartstep.feature.myprofile.presentation.model.WeightItems
+import com.akcrba.smartstep.feature.myprofile.presentation.model.WheelPickerData
 
 // --- Configuration Constants ---
 private val contentPadding = 24.dp
 private val NoopInt: (Int) -> Unit = {}
 
 @Composable
-internal fun ProfileSetupDialog(
+internal fun MyProfileDialog(
     bodyStats: BodyStats,
     wheelPickerData: WheelPickerData,
-    onAction: (ProfileSetupAction) -> Unit,
+    onAction: (MyProfileAction) -> Unit,
     onIsMetricSystemChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -61,7 +61,7 @@ internal fun ProfileSetupDialog(
         DialogType.WEIGHT -> R.string.ps_dialog_label_weight
     }
 
-    Dialog(onDismissRequest = { onAction(ProfileSetupAction.Dialog.OnClickCancel) }) {
+    Dialog(onDismissRequest = { onAction(MyProfileAction.Dialog.OnClickCancel) }) {
         Column(
             modifier = modifier
                 .clip(RoundedCornerShape(28.dp))
@@ -86,7 +86,7 @@ internal fun ProfileSetupDialog(
                     textAlign = TextAlign.Start,
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                ProfileSetupDialogSegmentedButton(
+                MyProfileDialogSegmentedButton(
                     isMetricSystem = isMetric,
                     unitMetric = type.unitMetric,
                     unitImperial = type.unitImperial,
@@ -99,13 +99,13 @@ internal fun ProfileSetupDialog(
                     { value ->
                         when (type) {
                             DialogType.WEIGHT -> onAction(
-                                ProfileSetupAction.Dialog.UpdateInterimWeight(
+                                MyProfileAction.Dialog.UpdateInterimWeight(
                                     if (isMetric) Weight.fromMetric(value) else Weight.fromImperial(value),
                                 ),
                             )
 
                             DialogType.HEIGHT -> onAction(
-                                ProfileSetupAction.Dialog.UpdateInterimHeight(
+                                MyProfileAction.Dialog.UpdateInterimHeight(
                                     Height.fromMetric(
                                         value,
                                     ),
@@ -122,12 +122,12 @@ internal fun ProfileSetupDialog(
                 { ft, inch ->
                     // Double wheel is only used for imperial height
                     if (type == DialogType.HEIGHT && !isMetric) {
-                        onAction(ProfileSetupAction.Dialog.UpdateInterimHeight(Height.fromImperial(ft, inch)))
+                        onAction(MyProfileAction.Dialog.UpdateInterimHeight(Height.fromImperial(ft, inch)))
                     }
                 }
             }
 
-            ProfileSetupDialogWheelPicker(
+            MyProfileDialogWheelPicker(
                 wheelPickerData = wheelPickerData,
                 bodyStats = bodyStats,
                 onSingleValueChange = onSingleValueChangeInternal,
@@ -141,7 +141,7 @@ internal fun ProfileSetupDialog(
             ) {
                 TextButton(
                     onClick = {
-                        onAction(ProfileSetupAction.Dialog.OnClickCancel)
+                        onAction(MyProfileAction.Dialog.OnClickCancel)
                     },
                     colors = ButtonDefaults.textButtonColors(
                         contentColor = MaterialTheme.colorScheme.primary,
@@ -155,7 +155,7 @@ internal fun ProfileSetupDialog(
                 Spacer(modifier = Modifier.width(8.dp))
                 TextButton(
                     onClick = {
-                        onAction(ProfileSetupAction.Dialog.OnClickOk(type = type))
+                        onAction(MyProfileAction.Dialog.OnClickOk(type = type))
                     },
                     colors = ButtonDefaults.textButtonColors(
                         contentColor = MaterialTheme.colorScheme.primary,
@@ -173,9 +173,9 @@ internal fun ProfileSetupDialog(
 
 @Preview
 @Composable
-private fun ProfileSetupWeightDialogPreview() {
+private fun MyProfileWeightDialogPreview() {
     SmartStepTheme {
-        ProfileSetupDialog(
+        MyProfileDialog(
             bodyStats = BodyStats(
                 height = Height(cm = 175, ft = 5, inch = 9),
                 interimHeight = Height(cm = 175, ft = 5, inch = 9),
@@ -194,9 +194,9 @@ private fun ProfileSetupWeightDialogPreview() {
 
 @Preview
 @Composable
-private fun ProfileSetupHeightDialogPreview() {
+private fun MyProfileHeightDialogPreview() {
     SmartStepTheme {
-        ProfileSetupDialog(
+        MyProfileDialog(
             bodyStats = BodyStats(
                 height = Height(cm = 175, ft = 5, inch = 9),
                 interimHeight = Height(cm = 175, ft = 5, inch = 9),

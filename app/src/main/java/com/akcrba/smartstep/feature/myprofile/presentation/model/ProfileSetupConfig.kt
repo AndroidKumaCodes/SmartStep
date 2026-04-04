@@ -1,6 +1,6 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.model
+package com.akcrba.smartstep.feature.myprofile.presentation.model
 
-import com.akcrba.smartstep.feature.profilesetup.domain.model.Gender
+import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
 
 // This file contains the "Static Configuration" (fixed options, ranges, and types available to choose from)
 
@@ -17,7 +17,7 @@ sealed class WheelPickerData {
     data class Weight(val items: WeightItems) : WheelPickerData()
 }
 
-internal data class ProfileSetupItems(
+internal data class MyProfileItems(
     val genderItems: List<Gender> = genderItemsList,
     val heightItems: HeightItems = HeightItems(),
     val weightItems: WeightItems = WeightItems(),

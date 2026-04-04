@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables.dialog
+package com.akcrba.smartstep.feature.myprofile.presentation.composables.dialog
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,7 +14,7 @@ import com.akcrba.smartstep.app.ui.theme.SmartStepTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ProfileSetupDialogSegmentedButton(
+internal fun MyProfileDialogSegmentedButton(
     isMetricSystem: Boolean,
     unitMetric: String,
     unitImperial: String,
@@ -59,9 +59,9 @@ internal fun ProfileSetupDialogSegmentedButton(
 
 @Preview(showBackground = true)
 @Composable
-private fun ProfileSetupDialogSegmentedButtonPreview() {
+private fun MyProfileDialogSegmentedButtonPreview() {
     SmartStepTheme {
-        ProfileSetupDialogSegmentedButton(
+        MyProfileDialogSegmentedButton(
             isMetricSystem = true,
             unitMetric = "kg",
             unitImperial = "lbs",

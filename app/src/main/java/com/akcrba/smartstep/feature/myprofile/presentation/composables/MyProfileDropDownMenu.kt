@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables
+package com.akcrba.smartstep.feature.myprofile.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,11 +25,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.akcrba.smartstep.app.ui.theme.bodyLargeRegular
-import com.akcrba.smartstep.feature.profilesetup.domain.model.Gender
+import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ProfileSetupDropDownMenu(
+internal fun MyProfileDropDownMenu(
     genders: List<Gender>,
     label: String,
     selectedItem: Gender,

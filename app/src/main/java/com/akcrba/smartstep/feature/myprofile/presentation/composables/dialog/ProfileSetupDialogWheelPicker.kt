@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables.dialog
+package com.akcrba.smartstep.feature.myprofile.presentation.composables.dialog
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,8 +31,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akcrba.smartstep.R
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.BodyStats
-import com.akcrba.smartstep.feature.profilesetup.presentation.model.WheelPickerData
+import com.akcrba.smartstep.feature.myprofile.presentation.model.BodyStats
+import com.akcrba.smartstep.feature.myprofile.presentation.model.WheelPickerData
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
@@ -76,7 +76,7 @@ private val WheelHeight = ItemHeight * VISIBLE_ITEM_COUNT
 private val SelectedFontSize = 24.sp
 
 @Composable
-internal fun ProfileSetupDialogWheelPicker(
+internal fun MyProfileDialogWheelPicker(
     wheelPickerData: WheelPickerData,
     bodyStats: BodyStats,
     onSingleValueChange: (Int) -> Unit,

@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables
+package com.akcrba.smartstep.feature.myprofile.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

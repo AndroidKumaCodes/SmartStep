@@ -1,7 +1,7 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.model
+package com.akcrba.smartstep.feature.myprofile.presentation.model
 
-import com.akcrba.smartstep.feature.profilesetup.domain.model.Gender
-import com.akcrba.smartstep.feature.profilesetup.domain.model.User
+import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
+import com.akcrba.smartstep.feature.myprofile.domain.model.User
 import kotlin.math.roundToInt
 
 // This file defines the "Dynamic State" (the data that changes as the user interacts with the app)

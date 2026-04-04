@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.profilesetup.presentation.composables
+package com.akcrba.smartstep.feature.myprofile.presentation.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 
 @Composable
-internal fun ProfileSetupDialogTriggerField(
+internal fun MyProfileDialogTriggerField(
     label: String,
     displayValue: String,
     onDialogTrigger: () -> Unit,
