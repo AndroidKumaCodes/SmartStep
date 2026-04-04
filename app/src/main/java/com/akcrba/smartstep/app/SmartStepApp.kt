@@ -5,7 +5,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Configuration
+import org.koin.core.annotation.KoinApplication
+import org.koin.core.annotation.Module
+import org.koin.dsl.KoinAppDeclaration
+import org.koin.plugin.module.dsl.startKoin
 
+@Module
+@ComponentScan("com.akcrba.smartstep")
+@Configuration
+internal class AppModule
+
+@KoinApplication
 class SmartStepApp : Application() {
 
     @Volatile
@@ -19,6 +32,15 @@ class SmartStepApp : Application() {
 
         applicationScope.launch {
             isDataReady = getAllDataAndSetThingsUp()
+        }
+        initKoin {
+            androidContext(this@SmartStepApp)
+        }
+    }
+
+    private fun initKoin(config: KoinAppDeclaration? = null) {
+        startKoin<SmartStepApp> {
+            config?.invoke(this)
         }
     }
 

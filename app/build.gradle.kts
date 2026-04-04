@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.koin.compiler)
 }
 
 android {
@@ -29,10 +30,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         compose = true
     }
@@ -52,6 +55,9 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.koin.core)
+    implementation(libs.koin.annotations)
+    implementation(libs.koin.compose)
 
     ktlintRuleset(libs.ktlintRuleset)
 
@@ -68,4 +74,8 @@ ktlint {
     android.set(true)
     verbose.set(true)
     outputColorName.set("RED")
+}
+
+koinCompiler {
+    userLogs = true
 }
