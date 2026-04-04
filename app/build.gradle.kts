@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.koin.compiler)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -58,6 +59,9 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.annotations)
     implementation(libs.koin.compose)
+    implementation(libs.room3.runtime)
+
+    ksp(libs.room3.compiler)
 
     ktlintRuleset(libs.ktlintRuleset)
 
