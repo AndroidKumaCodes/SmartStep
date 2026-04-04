@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.ktlint)
     alias(libs.plugins.koin.compiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.room3)
 }
 
 android {
@@ -82,4 +83,8 @@ ktlint {
 
 koinCompiler {
     userLogs = true
+}
+
+room3 {
+    schemaDirectory("$projectDir/schemas")
 }
