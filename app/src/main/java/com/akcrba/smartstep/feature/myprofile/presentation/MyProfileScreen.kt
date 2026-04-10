@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -97,7 +98,7 @@ private fun MyProfileContent(
                     )
                 },
                 actions = {
-                    TextButton(onClick = { TODO() }) {
+                    TextButton(onClick = { onAction(MyProfileAction.OnClickSkip) }) {
                         Text(
                             text = stringResource(R.string.profile_setup_skip),
                             style = MaterialTheme.typography.titleMedium,
@@ -127,13 +128,31 @@ private fun MyProfileContent(
                 Spacer(modifier = Modifier.height(24.dp))
                 CustomCard(
                     genders = myProfileItems.genderItems,
-                    gender = state.user.gender,
+                    displayGender = state.user.displayGender,
                     displayHeight = state.user.displayHeight,
                     displayWeight = state.user.displayWeight,
                     onAction = onAction,
                 )
                 // Add some padding at the bottom of scroll content so it doesn't touch the button immediately
                 Spacer(modifier = Modifier.height(16.dp))
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                Text(
+                    """
+                    User
+                    Gender: ${state.user.displayGender.value}
+                    Height: ${state.user.displayHeight}
+                    Weight: ${state.user.displayWeight}
+                    IsMetric: ${state.user.bodyStats.isMetric}
+                """.trimIndent(),
+                )
             }
 
             Spacer(modifier = Modifier.weight(1f))
@@ -150,7 +169,7 @@ private fun MyProfileContent(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary,
                 ),
-                onClick = { /*TODO*/ },
+                onClick = { onAction(MyProfileAction.OnClickDeleteUser) },
             ) {
                 Text(
                     text = "Delete User",
@@ -172,7 +191,7 @@ private fun MyProfileContent(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary,
                 ),
-                onClick = { /*TODO*/ },
+                onClick = { onAction(MyProfileAction.OnClickStart) },
             ) {
                 Text(
                     text = stringResource(R.string.profile_setup_start),
@@ -187,7 +206,7 @@ private fun MyProfileContent(
 @Composable
 private fun CustomCard(
     genders: List<Gender>,
-    gender: Gender,
+    displayGender: Gender,
     displayHeight: String,
     displayWeight: String,
     onAction: (MyProfileAction) -> Unit,
@@ -224,7 +243,7 @@ private fun CustomCard(
             MyProfileDropDownMenu(
                 genders = genders,
                 label = stringResource(R.string.ps_dialog_label_gender),
-                selectedItem = gender,
+                displayGender = displayGender,
                 onItemSelect = { gender ->
                     onAction(MyProfileAction.SetGender(gender))
                 },
