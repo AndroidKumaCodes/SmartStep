@@ -32,7 +32,7 @@ import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
 internal fun MyProfileDropDownMenu(
     genders: List<Gender>,
     label: String,
-    selectedItem: Gender,
+    displayGender: Gender,
     onItemSelect: (Gender) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -55,7 +55,7 @@ internal fun MyProfileDropDownMenu(
                 true,
             ),
             label = label,
-            displayValue = selectedItem.value,
+            displayValue = displayGender.value,
         )
         ExposedDropdownMenu(
             modifier = Modifier.background(MaterialTheme.colorScheme.surface),
@@ -80,7 +80,7 @@ internal fun MyProfileDropDownMenu(
                         isExpanded = false
                     },
                     trailingIcon = {
-                        if (selectedItem == gender) {
+                        if (displayGender == gender) {
                             Icon(
                                 modifier = Modifier.size(16.dp),
                                 imageVector = Icons.Default.Check,
