@@ -14,8 +14,8 @@ data class UiUser(
     val gender: Gender = Gender.FEMALE,
     val bodyStats: BodyStats = BodyStats(),
 ) {
-    val displayGender: String
-        get() = gender.value
+    val displayGender: Gender
+        get() = gender
 
     val displayHeight: String
         get() = bodyStats.height.formatted(bodyStats.isMetric)
