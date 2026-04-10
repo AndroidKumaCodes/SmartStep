@@ -16,9 +16,7 @@ internal class DatabaseModule {
             context,
             SmartStepDatabase::class.java,
             "smartstep_database",
-        )
-            .fallbackToDestructiveMigration() // If you don't care about losing user data when the scheme changes
-            .build()
+        ).build()
     }
 
     @Singleton
