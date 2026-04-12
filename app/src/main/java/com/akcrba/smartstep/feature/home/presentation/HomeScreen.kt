@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.main.presentation
+package com.akcrba.smartstep.feature.home.presentation
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -31,12 +31,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.akcrba.smartstep.R
-import com.akcrba.smartstep.feature.main.presentation.composables.StepsCard
+import com.akcrba.smartstep.feature.home.presentation.composables.StepsCard
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun SmartStepScreen(modifier: Modifier = Modifier) {
+internal fun HomeScreen(modifier: Modifier = Modifier) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -46,7 +46,7 @@ internal fun SmartStepScreen(modifier: Modifier = Modifier) {
 
     ModalNavigationDrawer(
         drawerState = drawerState,
-        drawerContent = { SmartStepDrawerContent() },
+        drawerContent = { HomeScreenDrawerContent() },
     ) {
         Scaffold(
             modifier = modifier.fillMaxSize(),
@@ -92,7 +92,7 @@ internal fun SmartStepScreen(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun SmartStepDrawerContent(modifier: Modifier = Modifier) {
+private fun HomeScreenDrawerContent(modifier: Modifier = Modifier) {
     ModalDrawerSheet(modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
         Text(
             text = "Menu",

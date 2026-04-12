@@ -1,4 +1,4 @@
-package com.akcrba.smartstep.feature.main.presentation.composables
+package com.akcrba.smartstep.feature.home.presentation.composables
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
