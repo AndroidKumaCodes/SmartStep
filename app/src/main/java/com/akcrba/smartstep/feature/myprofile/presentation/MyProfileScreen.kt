@@ -44,6 +44,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 internal fun MyProfileScreen(
+    onNavigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MyProfileViewModel = koinViewModel(),
 ) {
@@ -53,6 +54,7 @@ internal fun MyProfileScreen(
         modifier = modifier,
         state = state,
         onAction = viewModel::onAction,
+        onNavigateToHome = onNavigateToHome,
         myProfileItems = viewModel.myProfileItems,
     )
 }
@@ -62,6 +64,7 @@ internal fun MyProfileScreen(
 private fun MyProfileContent(
     state: MyProfileScreenState,
     onAction: (MyProfileAction) -> Unit,
+    onNavigateToHome: () -> Unit,
     myProfileItems: MyProfileItems,
     modifier: Modifier = Modifier,
 ) {
@@ -98,7 +101,12 @@ private fun MyProfileContent(
                     )
                 },
                 actions = {
-                    TextButton(onClick = { onAction(MyProfileAction.OnClickSkip) }) {
+                    TextButton(
+                        onClick = {
+                            onAction(MyProfileAction.OnClickSkip)
+                            onNavigateToHome()
+                        },
+                    ) {
                         Text(
                             text = stringResource(R.string.profile_setup_skip),
                             style = MaterialTheme.typography.titleMedium,
@@ -191,7 +199,10 @@ private fun MyProfileContent(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary,
                 ),
-                onClick = { onAction(MyProfileAction.OnClickStart) },
+                onClick = {
+                    onAction(MyProfileAction.OnClickStart)
+                    onNavigateToHome()
+                },
             ) {
                 Text(
                     text = stringResource(R.string.profile_setup_start),

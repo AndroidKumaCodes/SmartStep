@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.koin.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room3)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -61,6 +62,10 @@ dependencies {
     implementation(libs.koin.annotations)
     implementation(libs.koin.compose)
     implementation(libs.room3.runtime)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization.core)
 
     ksp(libs.room3.compiler)
 

@@ -8,6 +8,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.akcrba.smartstep.app.ui.theme.SmartStepTheme
+import com.akcrba.smartstep.lib.navigation.NavigationRoot
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SmartStepTheme {
-                SmartStepAppRoot()
+                NavigationRoot()
             }
         }
     }
