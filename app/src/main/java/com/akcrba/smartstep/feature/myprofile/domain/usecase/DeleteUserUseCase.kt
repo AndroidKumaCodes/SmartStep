@@ -8,9 +8,7 @@ internal interface DeleteUserUseCase {
 }
 
 @Singleton
-internal class DeleteUserUseCaseImpl(
-    private val userRepository: UserRepository,
-) : DeleteUserUseCase {
+internal class DeleteUserUseCaseImpl(private val userRepository: UserRepository) : DeleteUserUseCase {
     override suspend fun invoke() {
         userRepository.deleteUser()
         println("User deleted")

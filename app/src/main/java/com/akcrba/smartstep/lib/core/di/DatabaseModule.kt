@@ -11,16 +11,12 @@ import org.koin.core.annotation.Singleton
 internal class DatabaseModule {
 
     @Singleton
-    fun provideRoomDatabase(context: Context): SmartStepDatabase {
-        return Room.databaseBuilder(
-            context,
-            SmartStepDatabase::class.java,
-            "smartstep_database",
-        ).build()
-    }
+    fun provideRoomDatabase(context: Context): SmartStepDatabase = Room.databaseBuilder(
+        context,
+        SmartStepDatabase::class.java,
+        "smartstep_database",
+    ).build()
 
     @Singleton
-    fun provideUserDao(database: SmartStepDatabase): UserDao {
-        return database.userDao
-    }
+    fun provideUserDao(database: SmartStepDatabase): UserDao = database.userDao
 }

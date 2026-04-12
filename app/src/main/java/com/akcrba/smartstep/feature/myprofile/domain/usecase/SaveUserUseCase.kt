@@ -9,9 +9,7 @@ internal interface SaveUserUseCase {
 }
 
 @Singleton
-internal class SaveUserUseCaseImpl(
-    private val userRepository: UserRepository,
-) : SaveUserUseCase {
+internal class SaveUserUseCaseImpl(private val userRepository: UserRepository) : SaveUserUseCase {
     override suspend fun invoke(user: User) {
         userRepository.saveUser(user)
         println("User saved: $user")

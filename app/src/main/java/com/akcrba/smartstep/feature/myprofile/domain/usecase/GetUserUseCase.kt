@@ -11,12 +11,8 @@ internal interface GetUserUseCase {
 }
 
 @Singleton
-internal class GetUserUseCaseImpl(
-    private val userRepository: UserRepository,
-) : GetUserUseCase {
-    override fun invoke(): Flow<User?> {
-        return userRepository.getUser().onEach { user ->
-            println("User was retrieved: $user")
-        }
+internal class GetUserUseCaseImpl(private val userRepository: UserRepository) : GetUserUseCase {
+    override fun invoke(): Flow<User?> = userRepository.getUser().onEach { user ->
+        println("User was retrieved: $user")
     }
 }

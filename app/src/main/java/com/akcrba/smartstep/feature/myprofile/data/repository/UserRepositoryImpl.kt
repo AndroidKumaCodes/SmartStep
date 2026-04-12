@@ -10,22 +10,13 @@ import kotlinx.coroutines.flow.map
 import org.koin.core.annotation.Singleton
 
 @Singleton
-internal class UserRepositoryImpl(
-    private val userDao: UserDao,
-) : UserRepository {
+internal class UserRepositoryImpl(private val userDao: UserDao) : UserRepository {
 
-    override fun getUser(): Flow<User?> {
-        return userDao.getUser().map { userEntity ->
-            userEntity?.toUser()
-        }
+    override fun getUser(): Flow<User?> = userDao.getUser().map { userEntity ->
+        userEntity?.toUser()
     }
 
-    override suspend fun saveUser(user: User) {
-        userDao.insertUser(user.toEntity())
-    }
+    override suspend fun saveUser(user: User) = userDao.insertUser(user.toEntity())
 
-    override suspend fun deleteUser() {
-        userDao.deleteUser()
-    }
-
+    override suspend fun deleteUser() = userDao.deleteUser()
 }

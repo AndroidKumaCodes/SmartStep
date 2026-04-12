@@ -9,12 +9,9 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.akcrba.smartstep.feature.home.presentation.HomeScreen
 import com.akcrba.smartstep.feature.myprofile.presentation.MyProfileScreen
-import kotlin.text.clear
 
 @Composable
-internal fun NavigationRoot(
-    modifier: Modifier = Modifier,
-) {
+internal fun NavigationRoot(modifier: Modifier = Modifier) {
     val backStack = rememberNavBackStack(Route.MyProfile)
 
     NavDisplay(
@@ -32,7 +29,7 @@ internal fun NavigationRoot(
                             // Clear history so user can't 'back' into the profile screen
                             backStack.clear()
                             backStack.add(Route.Home)
-                        }
+                        },
                     )
                 }
 

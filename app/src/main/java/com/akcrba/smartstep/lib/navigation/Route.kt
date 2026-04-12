@@ -11,5 +11,4 @@ sealed interface Route : NavKey {
 
     @Serializable
     object Home : Route
-
 }

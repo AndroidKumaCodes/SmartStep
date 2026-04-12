@@ -128,7 +128,7 @@ private fun MyProfileContent(
         ) {
             Column(
                 modifier = Modifier
-                    //.weight(1f)
+                    // .weight(1f)
                     .fillMaxWidth()
                     .verticalScroll(state = rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -159,7 +159,7 @@ private fun MyProfileContent(
                     Height: ${state.user.displayHeight}
                     Weight: ${state.user.displayWeight}
                     IsMetric: ${state.user.bodyStats.isMetric}
-                """.trimIndent(),
+                    """.trimIndent(),
                 )
             }
 

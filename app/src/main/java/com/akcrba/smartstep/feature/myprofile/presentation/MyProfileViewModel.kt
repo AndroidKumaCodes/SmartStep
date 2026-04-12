@@ -37,7 +37,7 @@ internal class MyProfileViewModel(
         getUserUseCase().onEach { domainUser ->
             _state.update { currentState ->
                 when (domainUser) {
-                    null -> if (currentState.user == UiUser()) currentState else currentState.copy(user = UiUser()) // Safely reset to defaults
+                    null -> if (currentState.user == UiUser()) currentState else currentState.copy(user = UiUser())
                     else -> currentState.copy(
                         user = UiUser(
                             gender = domainUser.gender,
