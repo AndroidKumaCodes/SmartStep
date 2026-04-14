@@ -136,7 +136,6 @@ private fun MyProfileContent(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        // .weight(1f)
                         .verticalScroll(state = rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
@@ -152,11 +151,12 @@ private fun MyProfileContent(
                 }
 
                 Spacer(modifier = Modifier.weight(1f))
-                Row(
+
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
-                    horizontalArrangement = Arrangement.Center,
+                    contentAlignment = Alignment.Center,
                 ) {
                     Text(
                         """
