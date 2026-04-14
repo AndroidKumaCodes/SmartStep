@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinViewModel
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.roundToInt
 
 @KoinViewModel
@@ -33,11 +34,23 @@ internal class MyProfileViewModel(
 
     internal val myProfileItems = MyProfileItems()
 
+    private val suppressNextUserEmission = AtomicBoolean(false)
+
     init {
         getUserUseCase().onEach { domainUser ->
+            if (suppressNextUserEmission.getAndSet(false)) return@onEach
+
             _state.update { currentState ->
                 when (domainUser) {
-                    null -> if (currentState.user == UiUser()) currentState else currentState.copy(user = UiUser())
+                    null -> if (currentState.user == UiUser()) {
+                        currentState.copy(deleteButtonActive = false)
+                    } else {
+                        currentState.copy(
+                            user = UiUser(),
+                            deleteButtonActive = false,
+                        )
+                    }
+
                     else -> currentState.copy(
                         user = UiUser(
                             gender = domainUser.gender,
@@ -47,6 +60,7 @@ internal class MyProfileViewModel(
                                 isMetric = domainUser.isMetric,
                             ),
                         ),
+                        deleteButtonActive = true,
                     )
                 }
             }
@@ -67,8 +81,10 @@ internal class MyProfileViewModel(
                     saveUserUseCase(user.toDomainUser())
                 }
             }
+
             MyProfileAction.OnClickStart -> {
                 viewModelScope.launch {
+                    suppressNextUserEmission.set(true)
                     saveUserUseCase(state.value.user.toDomainUser())
                 }
             }
