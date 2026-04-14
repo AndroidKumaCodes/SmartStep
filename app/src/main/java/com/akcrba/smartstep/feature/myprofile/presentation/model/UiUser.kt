@@ -25,10 +25,10 @@ data class UiUser(
 }
 
 data class BodyStats(
-    val height: Height = Height(cm = 175, ft = 5, inch = 9),
-    val interimHeight: Height = Height(cm = 175, ft = 5, inch = 9),
-    val weight: Weight = Weight(kg = 65, lbs = 143),
-    val interimWeight: Weight = Weight(kg = 65, lbs = 143),
+    val height: Height = Height(cm = 170, ft = 5, inch = 7),
+    val interimHeight: Height = Height(cm = 170, ft = 5, inch = 7),
+    val weight: Weight = Weight(kg = 60, lbs = 132),
+    val interimWeight: Weight = Weight(kg = 60, lbs = 132),
     val isMetric: Boolean = true,
 )
 
