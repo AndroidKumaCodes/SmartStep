@@ -160,12 +160,12 @@ private fun MyProfileContent(
                 ) {
                     Text(
                         """
-                    User
-                    Gender: ${state.user.displayGender.value}
-                    Height: ${state.user.displayHeight}
-                    Weight: ${state.user.displayWeight}
-                    IsMetric: ${state.user.bodyStats.isMetric}
-                    """.trimIndent(),
+                        User
+                        Gender: ${state.user.displayGender.value}
+                        Height: ${state.user.displayHeight}
+                        Weight: ${state.user.displayWeight}
+                        IsMetric: ${state.user.bodyStats.isMetric}
+                        """.trimIndent(),
                     )
                 }
 
