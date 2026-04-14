@@ -3,6 +3,7 @@ package com.akcrba.smartstep.feature.myprofile.presentation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -121,93 +122,99 @@ private fun MyProfileContent(
         },
     ) { innerPadding ->
 
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
+            contentAlignment = Alignment.TopCenter,
         ) {
             Column(
                 modifier = Modifier
-                    // .weight(1f)
-                    .fillMaxWidth()
-                    .verticalScroll(state = rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                    .widthIn(max = 426.dp)
+                    .fillMaxSize(),
             ) {
-                Spacer(modifier = Modifier.height(24.dp))
-                CustomCard(
-                    genders = myProfileItems.genderItems,
-                    displayGender = state.user.displayGender,
-                    displayHeight = state.user.displayHeight,
-                    displayWeight = state.user.displayWeight,
-                    onAction = onAction,
-                )
-                // Add some padding at the bottom of scroll content so it doesn't touch the button immediately
-                Spacer(modifier = Modifier.height(16.dp))
-            }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        // .weight(1f)
+                        .verticalScroll(state = rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Spacer(modifier = Modifier.height(24.dp))
+                    CustomCard(
+                        genders = myProfileItems.genderItems,
+                        displayGender = state.user.displayGender,
+                        displayHeight = state.user.displayHeight,
+                        displayWeight = state.user.displayWeight,
+                        onAction = onAction,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
 
-            Spacer(modifier = Modifier.weight(1f))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.Center,
-            ) {
-                Text(
-                    """
+                Spacer(modifier = Modifier.weight(1f))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.Center,
+                ) {
+                    Text(
+                        """
                     User
                     Gender: ${state.user.displayGender.value}
                     Height: ${state.user.displayHeight}
                     Weight: ${state.user.displayWeight}
                     IsMetric: ${state.user.bodyStats.isMetric}
                     """.trimIndent(),
-                )
-            }
+                    )
+                }
 
-            Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(1f))
 
-            TextButton(
-                modifier = Modifier
-                    .widthIn(max = 250.dp)
-                    .fillMaxWidth()
-                    .height(40.dp)
-                    .padding(horizontal = 16.dp)
-                    .align(Alignment.CenterHorizontally),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.textButtonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                onClick = { onAction(MyProfileAction.OnClickDeleteUser) },
-            ) {
-                Text(
-                    text = "Delete User",
-                    style = MaterialTheme.typography.bodyLargeMedium,
-                )
-            }
+                TextButton(
+                    modifier = Modifier
+                        .widthIn(max = 250.dp)
+                        .fillMaxWidth()
+                        .height(40.dp)
+                        .padding(horizontal = 16.dp)
+                        .align(Alignment.CenterHorizontally),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.textButtonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary,
+                    ),
+                    enabled = state.deleteButtonActive,
+                    onClick = { onAction(MyProfileAction.OnClickDeleteUser) },
+                ) {
+                    Text(
+                        text = "Delete User",
+                        style = MaterialTheme.typography.bodyLargeMedium,
+                    )
+                }
 
-            Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(1f))
 
-            TextButton(
-                modifier = Modifier
-                    .widthIn(max = 426.dp)
-                    .fillMaxWidth()
-                    .height(40.dp)
-                    .padding(horizontal = 16.dp)
-                    .align(Alignment.CenterHorizontally),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.textButtonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                onClick = {
-                    onAction(MyProfileAction.OnClickStart)
-                    onNavigateToHome()
-                },
-            ) {
-                Text(
-                    text = stringResource(R.string.profile_setup_start),
-                    style = MaterialTheme.typography.bodyLargeMedium,
-                )
+                TextButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(40.dp)
+                        .padding(horizontal = 16.dp)
+                        .align(Alignment.CenterHorizontally),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.textButtonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary,
+                    ),
+                    onClick = {
+                        onAction(MyProfileAction.OnClickStart)
+                        onNavigateToHome()
+                    },
+                ) {
+                    Text(
+                        text = stringResource(R.string.profile_setup_start),
+                        style = MaterialTheme.typography.bodyLargeMedium,
+                    )
+                }
             }
         }
     }
@@ -225,7 +232,6 @@ private fun CustomCard(
 ) {
     Column(
         modifier = modifier
-            .widthIn(max = 426.dp)
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .clip(RoundedCornerShape(8.dp)),
