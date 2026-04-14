@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -67,24 +68,22 @@ internal fun HomeScreen(modifier: Modifier = Modifier) {
                     },
                 )
             },
-            // ✅ Screen regelt Top-Inset (Statusbar) + optional Bottom,
-            // aber Bottom kommt schon aus Root via modifier rein.
             contentWindowInsets = WindowInsets.safeDrawing,
         ) { innerPadding ->
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding)
-                    // TODO: Do I really need double padding?
-                    .padding(horizontal = 16.dp),
+                    .padding(innerPadding),
                 contentAlignment = Alignment.Center,
             ) {
                 StepsCard(
                     steps = 5500,
                     goal = 6000,
                     modifier = Modifier
+                        .padding(horizontal = 16.dp)
+                        .widthIn(max = 426.dp)
                         .fillMaxWidth()
-                        .padding(bottom = 110.dp), // entspricht grob dem Screenshot
+                        .padding(bottom = 110.dp),
                 )
             }
         }
