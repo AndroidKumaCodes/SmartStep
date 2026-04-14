@@ -10,6 +10,7 @@ internal data class MyProfileScreenState(
     val user: UiUser = UiUser(),
     val showHeightDialog: Boolean = false,
     val showWeightDialog: Boolean = false,
+    val deleteButtonActive: Boolean = false,
 )
 
 internal sealed interface MyProfileAction {
