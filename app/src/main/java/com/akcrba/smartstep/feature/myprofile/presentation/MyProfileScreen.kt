@@ -2,10 +2,8 @@ package com.akcrba.smartstep.feature.myprofile.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,6 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.akcrba.smartstep.BuildConfig
 import com.akcrba.smartstep.R
 import com.akcrba.smartstep.app.ui.theme.bodyLargeMedium
 import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
@@ -152,47 +151,49 @@ private fun MyProfileContent(
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        """
-                        User
-                        Gender: ${state.user.displayGender.value}
-                        Height: ${state.user.displayHeight}
-                        Weight: ${state.user.displayWeight}
-                        IsMetric: ${state.user.bodyStats.isMetric}
-                        """.trimIndent(),
-                    )
+                if (BuildConfig.DEBUG) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            """
+                            User
+                            Gender: ${state.user.displayGender.value}
+                            Height: ${state.user.displayHeight}
+                            Weight: ${state.user.displayWeight}
+                            IsMetric: ${state.user.bodyStats.isMetric}
+                            """.trimIndent(),
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
+
+                    TextButton(
+                        modifier = Modifier
+                            .widthIn(max = 250.dp)
+                            .fillMaxWidth()
+                            .height(40.dp)
+                            .padding(horizontal = 16.dp)
+                            .align(Alignment.CenterHorizontally),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.textButtonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = MaterialTheme.colorScheme.onPrimary,
+                        ),
+                        enabled = state.deleteButtonActive,
+                        onClick = { onAction(MyProfileAction.OnClickDeleteUser) },
+                    ) {
+                        Text(
+                            text = "Delete User",
+                            style = MaterialTheme.typography.bodyLargeMedium,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
                 }
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                TextButton(
-                    modifier = Modifier
-                        .widthIn(max = 250.dp)
-                        .fillMaxWidth()
-                        .height(40.dp)
-                        .padding(horizontal = 16.dp)
-                        .align(Alignment.CenterHorizontally),
-                    shape = RoundedCornerShape(8.dp),
-                    colors = ButtonDefaults.textButtonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary,
-                    ),
-                    enabled = state.deleteButtonActive,
-                    onClick = { onAction(MyProfileAction.OnClickDeleteUser) },
-                ) {
-                    Text(
-                        text = "Delete User",
-                        style = MaterialTheme.typography.bodyLargeMedium,
-                    )
-                }
-
-                Spacer(modifier = Modifier.weight(1f))
 
                 TextButton(
                     modifier = Modifier
