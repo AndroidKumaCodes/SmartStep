@@ -1,5 +1,5 @@
 [versions]
-agp = "9.1.0"
+agp = "9.1.1"
 coreKtx = "1.18.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
@@ -13,8 +13,8 @@ runtime = "1.10.6"
 core-splashscreen = "1.2.0"
 foundation = "1.10.6"
 ktlint = "14.2.0"
-ktlintComposeRules = "0.5.6"
-koin = "4.2.0"
+ktlintComposeRules = "0.5.7"
+koin = "4.2.1"
 koin-plugin = "0.6.2"
 room3 = "3.0.0-alpha03"
 ksp = "2.3.6"
@@ -22,6 +22,7 @@ nav3Core = "1.1.0"
 lifecycleViewmodelNav3 = "2.11.0-alpha03"
 kotlinSerialization = "2.3.20"
 kotlinxSerializationCore = "1.11.0"
+accompanist = "0.37.3"
 
 [libraries]
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
@@ -44,6 +45,7 @@ androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 ktlintRuleset = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "ktlintComposeRules"}
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 
 # Koin libraries
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
