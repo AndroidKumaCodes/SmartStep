@@ -10,7 +10,7 @@ internal const val CM_PER_INCH = 2.54
 internal const val LBS_PER_KG = 2.20462
 internal const val INCHES_PER_FOOT = 12
 
-data class UiUser(
+internal data class UiUser(
     val gender: Gender = Gender.FEMALE,
     val bodyStats: BodyStats = BodyStats(),
 ) {
@@ -24,7 +24,7 @@ data class UiUser(
         get() = bodyStats.weight.formatted(bodyStats.isMetric)
 }
 
-data class BodyStats(
+internal data class BodyStats(
     val height: Height = Height(cm = 175, ft = 5, inch = 9),
     val interimHeight: Height = Height(cm = 175, ft = 5, inch = 9),
     val weight: Weight = Weight(kg = 65, lbs = 143),
@@ -32,7 +32,7 @@ data class BodyStats(
     val isMetric: Boolean = true,
 )
 
-data class Height(
+internal data class Height(
     val cm: Int,
     val ft: Int,
     val inch: Int,
@@ -77,7 +77,7 @@ data class Height(
     }
 }
 
-data class Weight(
+internal data class Weight(
     val kg: Int,
     val lbs: Int,
 ) {
@@ -98,7 +98,7 @@ data class Weight(
     }
 }
 
-fun UiUser.toDomainUser(): User = User(
+internal fun UiUser.toDomainUser(): User = User(
     gender = gender,
     height = bodyStats.height.toExactCm(bodyStats.isMetric),
     weight = bodyStats.weight.toExactKg(bodyStats.isMetric),

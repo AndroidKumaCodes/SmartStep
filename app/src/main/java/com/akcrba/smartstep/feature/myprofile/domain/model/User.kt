@@ -1,6 +1,6 @@
 package com.akcrba.smartstep.feature.myprofile.domain.model
 
-data class User(
+internal data class User(
     val gender: Gender,
     val height: Double,
     val weight: Double,
