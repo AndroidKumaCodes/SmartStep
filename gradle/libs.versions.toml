@@ -23,6 +23,7 @@ lifecycleViewmodelNav3 = "2.11.0-alpha03"
 kotlinSerialization = "2.3.20"
 kotlinxSerializationCore = "1.11.0"
 accompanist = "0.37.3"
+adaptive = "1.2.0"
 
 [libraries]
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
@@ -44,6 +45,7 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+androidx-adaptive-core = { module = "androidx.compose.material3.adaptive:adaptive", version.ref = "adaptive" }
 ktlintRuleset = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "ktlintComposeRules"}
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 

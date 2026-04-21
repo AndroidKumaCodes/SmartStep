@@ -71,6 +71,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.kotlinx.serialization.core)
     implementation(libs.accompanist.permissions)
+    implementation(libs.androidx.adaptive.core)
 
     ksp(libs.room3.compiler)
 
