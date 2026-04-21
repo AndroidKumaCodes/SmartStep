@@ -1,5 +1,6 @@
 package com.akcrba.smartstep.feature.home.presentation
 
+import android.annotation.SuppressLint
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -25,19 +26,47 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.akcrba.smartstep.R
 import com.akcrba.smartstep.feature.home.presentation.composables.StepsCard
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
+
+@SuppressLint("BatteryLife")
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+internal fun HomeScreen(
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = koinViewModel(),
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+
+    PermissionHandler(context)
+
+    HomeContent(
+        modifier = modifier,
+        state = state,
+        onAction = viewModel::onAction,
+    )
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier) {
+internal fun HomeContent(
+    state: HomeScreenState,
+    onAction: (HomeAction) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -77,8 +106,8 @@ internal fun HomeScreen(modifier: Modifier = Modifier) {
                 contentAlignment = Alignment.Center,
             ) {
                 StepsCard(
-                    steps = 5500,
-                    goal = 6000,
+                    steps = state.steps,
+                    goal = state.goal,
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                         .widthIn(max = 426.dp)
