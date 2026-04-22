@@ -17,8 +17,8 @@ internal sealed interface HomeAction {
     }
 
     sealed interface StepGoal : HomeAction {
-        data object onClickSave : StepGoal
-        data object onClickCancel : StepGoal
+        data object OnClickSave : StepGoal
+        data object OnClickCancel : StepGoal
     }
 
     sealed interface BottomSheet : HomeAction {
