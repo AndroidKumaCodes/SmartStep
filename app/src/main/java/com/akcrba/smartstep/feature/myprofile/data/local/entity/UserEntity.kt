@@ -22,7 +22,7 @@ internal fun User.toEntity() = UserEntity(
 )
 
 internal fun UserEntity.toUser() = User(
-    gender = Gender.valueOf(this.gender.uppercase()),
+    gender = Gender.valueOf(this.gender),
     height = this.height,
     weight = this.weight,
     isMetric = this.isMetric,

@@ -11,7 +11,7 @@ internal const val LBS_PER_KG = 2.20462
 internal const val INCHES_PER_FOOT = 12
 
 internal data class UiUser(
-    val gender: Gender = Gender.FEMALE,
+    val gender: Gender = Gender.Female,
     val bodyStats: BodyStats = BodyStats(),
 ) {
     val displayGender: Gender
