@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import com.akcrba.smartstep.R
 import com.akcrba.smartstep.app.ui.theme.SmartStepTheme
 import com.akcrba.smartstep.app.ui.theme.bodyLargeMedium
@@ -62,7 +63,12 @@ internal fun MyProfileDialog(
         DialogType.WEIGHT -> R.string.my_profile_dialog_label_weight
     }
 
-    Dialog(onDismissRequest = { onAction(MyProfileAction.Dialog.OnClickCancel) }) {
+    Dialog(
+        onDismissRequest = { onAction(MyProfileAction.Dialog.OnClickCancel) },
+        properties = DialogProperties(
+            dismissOnClickOutside = false,
+        ),
+    ) {
         Column(
             modifier = modifier
                 .widthIn(max = 328.dp)
