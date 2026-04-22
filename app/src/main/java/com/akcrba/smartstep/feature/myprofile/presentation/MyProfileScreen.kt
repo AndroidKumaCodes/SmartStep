@@ -95,7 +95,7 @@ private fun MyProfileContent(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = stringResource(R.string.profile_setup_title),
+                        text = stringResource(R.string.my_profile_title),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurface,
                     )
@@ -108,7 +108,7 @@ private fun MyProfileContent(
                         },
                     ) {
                         Text(
-                            text = stringResource(R.string.profile_setup_skip),
+                            text = stringResource(R.string.my_profile_skip),
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.primary,
                         )
@@ -212,7 +212,7 @@ private fun MyProfileContent(
                     },
                 ) {
                     Text(
-                        text = stringResource(R.string.profile_setup_start),
+                        text = stringResource(R.string.my_profile_start),
                         style = MaterialTheme.typography.bodyLargeMedium,
                     )
                 }
@@ -240,7 +240,7 @@ private fun CustomCard(
     ) {
         Text(
             modifier = Modifier.padding(16.dp),
-            text = stringResource(R.string.profile_setup_info_text),
+            text = stringResource(R.string.my_profile_info_text),
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
         )
@@ -260,7 +260,7 @@ private fun CustomCard(
             Spacer(modifier = Modifier.height(16.dp))
             MyProfileDropDownMenu(
                 genders = genders,
-                label = stringResource(R.string.ps_dialog_label_gender),
+                label = stringResource(R.string.my_profile_dialog_label_gender),
                 displayGender = displayGender,
                 onItemSelect = { gender ->
                     onAction(MyProfileAction.SetGender(gender))
@@ -268,13 +268,13 @@ private fun CustomCard(
             )
             Spacer(modifier = Modifier.height(8.dp))
             MyProfileDialogTriggerField(
-                label = stringResource(R.string.ps_dialog_label_height),
+                label = stringResource(R.string.my_profile_dialog_label_height),
                 displayValue = displayHeight,
                 onDialogTrigger = { onAction(MyProfileAction.Dialog.ShowDialog(DialogType.HEIGHT)) },
             )
             Spacer(modifier = Modifier.height(8.dp))
             MyProfileDialogTriggerField(
-                label = stringResource(R.string.ps_dialog_label_weight),
+                label = stringResource(R.string.my_profile_dialog_label_weight),
                 displayValue = displayWeight,
                 onDialogTrigger = { onAction(MyProfileAction.Dialog.ShowDialog(DialogType.WEIGHT)) },
             )

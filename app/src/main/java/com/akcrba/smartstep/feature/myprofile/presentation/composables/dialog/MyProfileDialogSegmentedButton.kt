@@ -9,7 +9,9 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.akcrba.smartstep.R
 import com.akcrba.smartstep.app.ui.theme.SmartStepTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,8 +65,8 @@ private fun MyProfileDialogSegmentedButtonPreview() {
     SmartStepTheme {
         MyProfileDialogSegmentedButton(
             isMetricSystem = true,
-            unitMetric = "kg",
-            unitImperial = "lbs",
+            unitMetric = stringResource(R.string.my_profile_dialog_unit_kg),
+            unitImperial = stringResource(R.string.my_profile_dialog_unit_lbs),
             onIsMetricSystemChange = {},
         )
     }

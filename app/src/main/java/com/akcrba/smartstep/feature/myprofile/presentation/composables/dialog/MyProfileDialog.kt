@@ -58,8 +58,8 @@ internal fun MyProfileDialog(
     }
 
     val titleRes = when (type) {
-        DialogType.HEIGHT -> R.string.ps_dialog_label_height
-        DialogType.WEIGHT -> R.string.ps_dialog_label_weight
+        DialogType.HEIGHT -> R.string.my_profile_dialog_label_height
+        DialogType.WEIGHT -> R.string.my_profile_dialog_label_weight
     }
 
     Dialog(onDismissRequest = { onAction(MyProfileAction.Dialog.OnClickCancel) }) {
@@ -81,7 +81,7 @@ internal fun MyProfileDialog(
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = stringResource(R.string.ps_dialog_subtitle),
+                    text = stringResource(R.string.my_profile_dialog_subtitle),
                     style = MaterialTheme.typography.bodyMediumRegular,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.fillMaxWidth(),
@@ -90,8 +90,8 @@ internal fun MyProfileDialog(
                 Spacer(modifier = Modifier.height(16.dp))
                 MyProfileDialogSegmentedButton(
                     isMetricSystem = isMetric,
-                    unitMetric = type.unitMetric,
-                    unitImperial = type.unitImperial,
+                    unitMetric = stringResource(type.unitMetric),
+                    unitImperial = stringResource(type.unitImperial),
                     onIsMetricSystemChange = onIsMetricSystemChange,
                 )
             }
@@ -150,7 +150,7 @@ internal fun MyProfileDialog(
                     ),
                 ) {
                     Text(
-                        text = stringResource(R.string.ps_dialog_cancel),
+                        text = stringResource(R.string.my_profile_dialog_cancel),
                         style = MaterialTheme.typography.bodyLargeMedium,
                     )
                 }
@@ -164,7 +164,7 @@ internal fun MyProfileDialog(
                     ),
                 ) {
                     Text(
-                        text = stringResource(R.string.ps_dialog_ok),
+                        text = stringResource(R.string.my_profile_dialog_ok),
                         style = MaterialTheme.typography.bodyLargeMedium,
                     )
                 }

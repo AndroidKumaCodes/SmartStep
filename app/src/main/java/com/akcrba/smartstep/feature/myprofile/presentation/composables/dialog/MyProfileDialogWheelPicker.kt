@@ -94,7 +94,7 @@ internal fun MyProfileDialogWheelPicker(
                     modifier = modifier,
                     wheelItems = heightItems.cmItems,
                     initialValue = bodyStats.interimHeight.cm,
-                    unit = stringResource(R.string.ps_dialog_unit_cm),
+                    unit = stringResource(R.string.my_profile_dialog_unit_cm),
                     onValueChange = onSingleValueChange,
                 )
             } else {
@@ -104,8 +104,8 @@ internal fun MyProfileDialogWheelPicker(
                     rightItems = heightItems.inchItems,
                     initialValueLeft = bodyStats.interimHeight.ft,
                     initialValueRight = bodyStats.interimHeight.inch,
-                    leftUnit = stringResource(R.string.ps_dialog_unit_ft),
-                    rightUnit = stringResource(R.string.ps_dialog_unit_inch),
+                    leftUnit = stringResource(R.string.my_profile_dialog_unit_ft),
+                    rightUnit = stringResource(R.string.my_profile_dialog_unit_inch),
                     onValueChange = onDoubleValueChange,
                 )
             }
@@ -117,7 +117,7 @@ internal fun MyProfileDialogWheelPicker(
             // Prepare data first to keep the key-wrapper clean
             val items = if (isMetric) weightItems.kgItems else weightItems.lbsItems
             val initial = if (isMetric) bodyStats.interimWeight.kg else bodyStats.interimWeight.lbs
-            val unitRes = if (isMetric) R.string.ps_dialog_unit_kg else R.string.ps_dialog_unit_lbs
+            val unitRes = if (isMetric) R.string.my_profile_dialog_unit_kg else R.string.my_profile_dialog_unit_lbs
             val unit = stringResource(unitRes)
 
             // IMPORTANT: key(isMetric) forces a fresh start when units change,

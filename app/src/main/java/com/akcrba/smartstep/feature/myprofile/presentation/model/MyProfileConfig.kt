@@ -1,15 +1,17 @@
 package com.akcrba.smartstep.feature.myprofile.presentation.model
 
+import androidx.annotation.StringRes
+import com.akcrba.smartstep.R
 import com.akcrba.smartstep.feature.myprofile.domain.model.Gender
 
 // This file contains the "Static Configuration" (fixed options, ranges, and types available to choose from)
 
 internal enum class DialogType(
-    val unitMetric: String,
-    val unitImperial: String,
+    @get:StringRes val unitMetric: Int,
+    @get:StringRes val unitImperial: Int,
 ) {
-    WEIGHT(unitMetric = "kg", unitImperial = "lbs"),
-    HEIGHT(unitMetric = "cm", unitImperial = "ft/inch"),
+    WEIGHT(unitMetric = R.string.my_profile_config_kg, unitImperial = R.string.my_profile_config_lbs),
+    HEIGHT(unitMetric = R.string.my_profile_config_cm, unitImperial = R.string.my_profile_config_ft_inch),
 }
 
 sealed class WheelPickerData {

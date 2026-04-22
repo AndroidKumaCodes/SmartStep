@@ -2,23 +2,52 @@
     <!-- App -->
     <string name="app_name">Smart Step</string>
 
-    <!-- MyProfile -->
-    <string name="profile_setup_title">My Profile</string>
-    <string name="profile_setup_info_text">This information helps calculate your activity more accurately.</string>
-    <string name="profile_setup_skip">Skip</string>
-    <string name="profile_setup_start">Start</string>
+    <!-- HomeScreen -->
+    <string name="home_screen_drawer_menu">Menu</string>
+    <string name="home_screen_drawer_fix_step_issue">Fix the "Stop Counting Steps" issue</string>
+    <string name="home_screen_drawer_step_goal">Step Goal</string>
+    <string name="home_screen_drawer_my_profile">My Profile</string>
+    <string name="home_screen_drawer_exit">Exit</string>
 
-    <!-- MyProfile (ps) / Dialog -->
-    <string name="ps_dialog_subtitle">Used to calculate calories</string>
-    <string name="ps_dialog_unit_ft"> ft</string>
-    <string name="ps_dialog_unit_inch"> in</string>
-    <string name="ps_dialog_unit_cm"> cm</string>
-    <string name="ps_dialog_unit_lbs"> lbs</string>
-    <string name="ps_dialog_unit_kg"> kg</string>
-    <string name="ps_dialog_label_gender">Gender</string>
-    <string name="ps_dialog_label_height">Height</string>
-    <string name="ps_dialog_label_weight">Weight</string>
-    <string name="ps_dialog_cancel">Cancel</string>
-    <string name="ps_dialog_ok">Ok</string>
+    <!-- SmartStep / Permission -->
+    <string name="smart_step_permission_background_access_title">Background access recommended</string>
+    <string name="smart_step_permission_background_access_text">Background access helps Smart Step track your activity more reliably.</string>
+    <string name="smart_step_permission_manual_access_title">Enable access manually</string>
+    <string name="smart_step_permission_manual_access_text">To track your steps, please enable the\npermission in your device settings.</string>
+    <string name="smart_step_permission_manual_access_bullet_one">1. Open Permissions</string>
+    <string name="smart_step_permission_manual_access_bullet_two">2. Tap Physical activity</string>
+    <string name="smart_step_permission_manual_access_bullet_three">3. Select Allow</string>
+    <string name="smart_step_permission_motion_sensor_text">To count your steps,\nSmart Step needs access to your\nmotion sensors.</string>
+    <string name="smart_step_permission_allow_access">Allow access</string>
+    <string name="smart_step_permission_open_settings">Open Settings</string>
+    <string name="smart_step_permission_continue">Continue</string>
+
+    <!-- StepsCard -->
+    <string name="steps_card_goal">/%1$d Steps</string>
+
+    <!-- MyProfile -->
+    <string name="my_profile_title">My Profile</string>
+    <string name="my_profile_info_text">This information helps calculate your activity more accurately.</string>
+    <string name="my_profile_skip">Skip</string>
+    <string name="my_profile_start">Start</string>
+
+    <!-- MyProfile / Config -->
+    <string name="my_profile_config_kg">kg</string>
+    <string name="my_profile_config_lbs">lbs</string>
+    <string name="my_profile_config_cm">cm</string>
+    <string name="my_profile_config_ft_inch">ft/inch</string>
+
+    <!-- MyProfile / Dialog -->
+    <string name="my_profile_dialog_subtitle">Used to calculate calories</string>
+    <string name="my_profile_dialog_unit_ft"> ft</string>
+    <string name="my_profile_dialog_unit_inch"> in</string>
+    <string name="my_profile_dialog_unit_cm"> cm</string>
+    <string name="my_profile_dialog_unit_lbs"> lbs</string>
+    <string name="my_profile_dialog_unit_kg"> kg</string>
+    <string name="my_profile_dialog_label_gender">Gender</string>
+    <string name="my_profile_dialog_label_height">Height</string>
+    <string name="my_profile_dialog_label_weight">Weight</string>
+    <string name="my_profile_dialog_cancel">Cancel</string>
+    <string name="my_profile_dialog_ok">Ok</string>
 
 </resources>

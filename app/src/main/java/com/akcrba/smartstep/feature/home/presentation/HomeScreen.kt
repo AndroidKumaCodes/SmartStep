@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.akcrba.smartstep.R
@@ -91,7 +92,7 @@ internal fun HomeContent(
                         IconButton(onClick = { scope.launch { drawerState.open() } }) {
                             Icon(
                                 painter = painterResource(R.drawable.burger_menu),
-                                contentDescription = "Menu",
+                                contentDescription = "",
                             )
                         }
                     },
@@ -123,7 +124,7 @@ internal fun HomeContent(
 private fun HomeScreenDrawerContent(modifier: Modifier = Modifier) {
     ModalDrawerSheet(modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
         Text(
-            text = "Menu",
+            text = stringResource(R.string.home_screen_drawer_menu),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(16.dp),
         )
@@ -131,25 +132,25 @@ private fun HomeScreenDrawerContent(modifier: Modifier = Modifier) {
         HorizontalDivider(color = MaterialTheme.colorScheme.outline)
 
         NavigationDrawerItem(
-            label = { Text("""Fix the "Stop Counting Steps" issue""") },
+            label = { Text(stringResource(R.string.home_screen_drawer_fix_step_issue)) },
             selected = false,
             onClick = { /* später */ },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
         )
         NavigationDrawerItem(
-            label = { Text("Step Goal") },
+            label = { Text(stringResource(R.string.home_screen_drawer_step_goal)) },
             selected = false,
             onClick = { /* später */ },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
         )
         NavigationDrawerItem(
-            label = { Text("Personal Settings") },
+            label = { Text(stringResource(R.string.home_screen_drawer_my_profile)) },
             selected = false,
             onClick = { /* später */ },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
         )
         NavigationDrawerItem(
-            label = { Text("Exit") },
+            label = { Text(stringResource(R.string.home_screen_drawer_exit)) },
             selected = false,
             onClick = { /* später */ },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
