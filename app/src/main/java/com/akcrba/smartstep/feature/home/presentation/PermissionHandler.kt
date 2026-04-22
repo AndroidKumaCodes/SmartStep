@@ -19,8 +19,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import com.akcrba.smartstep.feature.home.presentation.composables.BottomSheetType
-import com.akcrba.smartstep.feature.home.presentation.composables.SmartStepBottomSheet
+import com.akcrba.smartstep.feature.home.presentation.composables.PermissionPromptType
+import com.akcrba.smartstep.feature.home.presentation.composables.SmartStepPermissionPrompt
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionStatus
 import com.google.accompanist.permissions.isGranted
@@ -64,31 +64,31 @@ internal fun PermissionHandler(context: Context) {
 
         // Fall 2: Verweigert, aber Rationale zeigen (Motion Sensor Content)
         !isGranted && shouldShowRationale -> {
-            SmartStepBottomSheet(
-                type = BottomSheetType.MotionSensor,
+            SmartStepPermissionPrompt(
+                type = PermissionPromptType.MotionSensor,
                 onDismissRequest = { /* Handle dismiss */ },
                 onAction = {
                     isSystemDialogVisible = true
                     permissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION)
-                }
+                },
             )
         }
 
         // Fall 3: Dauerhaft verweigert / Don't ask again (Manual Access via Einstellungen)
         !isGranted && !shouldShowRationale -> {
-            SmartStepBottomSheet(
-                type = BottomSheetType.ManualAccess,
+            SmartStepPermissionPrompt(
+                type = PermissionPromptType.ManualAccess,
                 onDismissRequest = { /* Handle dismiss */ },
-                onAction = { context.openAppSettings() }
+                onAction = { context.openAppSettings() },
             )
         }
 
         // Fall 4: Motion Sensor ist aktiv, jetzt Hintergrund-Berechtigung abfragen
         !isIgnoringOptimizations -> {
-            SmartStepBottomSheet(
-                type = BottomSheetType.BackgroundAccess,
+            SmartStepPermissionPrompt(
+                type = PermissionPromptType.BackgroundAccess,
                 onDismissRequest = { /* Handle dismiss */ },
-                onAction = { context.requestIgnoreBatteryOptimizations() }
+                onAction = { context.requestIgnoreBatteryOptimizations() },
             )
         }
     }
@@ -116,14 +116,18 @@ private fun rememberIsIgnoringBatteryOptimizations(context: Context): Boolean {
 }
 
 private fun Context.openAppSettings() {
-    startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-        data = android.net.Uri.fromParts("package", packageName, null)
-    })
+    startActivity(
+        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+            data = android.net.Uri.fromParts("package", packageName, null)
+        },
+    )
 }
 
 @SuppressLint("BatteryLife")
 private fun Context.requestIgnoreBatteryOptimizations() {
-    startActivity(Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
-        data = android.net.Uri.fromParts("package", packageName, null)
-    })
+    startActivity(
+        Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+            data = android.net.Uri.fromParts("package", packageName, null)
+        },
+    )
 }
